@@ -120,6 +120,10 @@ function renderWords() {
 function handleCardClick(clickedCard, word) {
     const clickedCardIndex = words.findIndex(item => item.russianWord === word || item.englishWord === word);
 
+    if (clickedCard.classList.contains('correct')) {
+        return;
+    }
+
     if (!selectedCard) {
         selectedCard = clickedCard;
         selectedCardIndex = clickedCardIndex;
@@ -140,7 +144,10 @@ function handleCardClick(clickedCard, word) {
             clickedCard.classList.add('wrong');
             words[clickedCardIndex].attempts++;
             setTimeout(() => {
+                selectedCard.classList.remove('correct');
                 clickedCard.classList.remove('wrong');
+                selectedCard = null;
+                selectedCardIndex = null;
                 resetCardStates();
             }, 1000);
         }

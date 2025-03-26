@@ -35,7 +35,7 @@ const resultModal = document.querySelector('.results-modal');
 const staticsContainer = document.querySelector('.results-content');
 const staticsTimer = document.querySelector('.time');
 
-let time = timerSpan.textContent.split(':');
+const time = timerSpan.textContent.split(':');
 let minutes = time[0];
 let seconds = time[1];
 let currentIndex = 0;
